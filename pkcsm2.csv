@@ -1,0 +1,166 @@
+LQB-861,,,,,,
+Peso Molecular,347.326,,Absorption,Water solubility,-5.383,Numeric (log mol/L) , Low water solubility
+LogP,4.5135,,Absorption,Caco2 permeability,0.386,Numeric (log Papp in 10-6 cm/s) , Low Caco2 Permeability
+Nº de Ligações Rotativas,3,,Absorption,Intestinal absorption (human),93.845,Numeric (% Absorbed) , High Intestinal absorption (human)
+Nº de Aceptores de Hidrogênio,5,,Absorption,Skin Permeability,-2.664,Numeric (log Kp) , Low Skin Permeability
+Nº de Doadores de Hidrogênio,0,,Absorption,P-glycoprotein substrate,Yes,Categorical (Yes/No) , Is a P-glycoprotein substrate
+Área de Superfície Molecular,148.032,,Absorption,P-glycoprotein I inhibitor,Yes,Categorical (Yes/No) , Is a P-glycoprotein I inhibitor
+,,,Absorption,P-glycoprotein II inhibitor,Yes,Categorical (Yes/No) , Is a P-glycoprotein II inhibitor
+,,,Distribution,VDss (human),0.124,Numeric (log L/kg) , Moderate VDss (human)
+,,,Distribution,Fraction unbound (human),0.044,Numeric (Fu)
+,,,Distribution,BBB permeability,-0.521,Numeric (log BB) , Cannot cross the BBB
+,,,Distribution,CNS permeability,-1.677,Numeric (log PS) , Can cross the CNS
+,,,Metabolism,CYP2D6 substrate,No,Categorical (Yes/No) , Is not a CYP2D6 substrate
+,,,Metabolism,CYP3A4 substrate,Yes,Categorical (Yes/No) , Is a CYP3A4 substrate
+,,,Metabolism,CYP1A2 inhibitior,Yes,Categorical (Yes/No) , Is a CYP1A2 inhibitior
+,,,Metabolism,CYP2C19 inhibitior,Yes,Categorical (Yes/No) , Is a CYP2C19 inhibitior
+,,,Metabolism,CYP2C9 inhibitior,Yes,Categorical (Yes/No) , Is a CYP2C9 inhibitior
+,,,Metabolism,CYP2D6 inhibitior,No,Categorical (Yes/No) , Is not a CYP2D6 inhibitior
+,,,Metabolism,CYP3A4 inhibitior,Yes,Categorical (Yes/No) , Is a CYP3A4 inhibitior
+,,,Excretion,Total Clearance,0.215,Numeric (log ml/min/kg)
+,,,Excretion,Renal OCT2 substrate,No,Categorical (Yes/No) , Is not a Renal OCT2 substrate
+,,,Toxicity,AMES toxicity,Yes,Categorical (Yes/No) , Is AMES toxic
+,,,Toxicity,Max. tolerated dose (human),-0.272,Numeric (log mg/kg/day) , Low Max. tolerated dose (human)
+,,,Toxicity,hERG I inhibitor,No,Categorical (Yes/No) , Is not a hERG I inhibitor
+,,,Toxicity,hERG II inhibitor,Yes,Categorical (Yes/No) , Is a hERG II inhibitor
+,,,Toxicity,Oral Rat Acute Toxicity (LD50),2.82,Numeric (mol/kg)
+,,,Toxicity,Oral Rat Chronic Toxicity (LOAEL),1.399,Numeric (log mg/kg_bw/day)
+,,,Toxicity,Hepatotoxicity,No,Categorical (Yes/No) , Is not Hepatotoxic
+,,,Toxicity,Skin Sensitisation,No,Categorical (Yes/No) , Is not Skin Sensitiser
+,,,Toxicity,T.Pyriformis toxicity,0.707,Numeric (log ug/L) , High T.Pyriformis toxicity
+,,,Toxicity,Minnow toxicity,-1.666,Numeric (log mM) , Low Minnow toxicity
+,,,,,,
+,,,,,,
+,,,,,,
+,,,Absorption,Water solubility,-5.383,Numeric (log mol/L) , Low water solubility
+,,,Absorption,Caco2 permeability,0.386,Numeric (log Papp in 10-6 cm/s) , Low Caco2 Permeability
+,,,Absorption,Intestinal absorption (human),93.845,Numeric (% Absorbed) , High Intestinal absorption (human)
+,,,Absorption,Skin Permeability,-2.664,Numeric (log Kp) , Low Skin Permeability
+,,,Absorption,P-glycoprotein substrate,Yes,Categorical (Yes/No) , Is a P-glycoprotein substrate
+,,,Absorption,P-glycoprotein I inhibitor,Yes,Categorical (Yes/No) , Is a P-glycoprotein I inhibitor
+,,,Absorption,P-glycoprotein II inhibitor,Yes,Categorical (Yes/No) , Is a P-glycoprotein II inhibitor
+,,,Distribution,VDss (human),0.124,Numeric (log L/kg) , Moderate VDss (human)
+,,,Distribution,Fraction unbound (human),0.044,Numeric (Fu)
+,,,Distribution,BBB permeability,-0.521,Numeric (log BB) , Cannot cross the BBB
+,,,Distribution,CNS permeability,-1.677,Numeric (log PS) , Can cross the CNS
+,,,Metabolism,CYP2D6 substrate,No,Categorical (Yes/No) , Is not a CYP2D6 substrate
+,,,Metabolism,CYP3A4 substrate,Yes,Categorical (Yes/No) , Is a CYP3A4 substrate
+,,,Metabolism,CYP1A2 inhibitior,Yes,Categorical (Yes/No) , Is a CYP1A2 inhibitior
+,,,Metabolism,CYP2C19 inhibitior,Yes,Categorical (Yes/No) , Is a CYP2C19 inhibitior
+,,,Metabolism,CYP2C9 inhibitior,Yes,Categorical (Yes/No) , Is a CYP2C9 inhibitior
+,,,Metabolism,CYP2D6 inhibitior,No,Categorical (Yes/No) , Is not a CYP2D6 inhibitior
+,,,Metabolism,CYP3A4 inhibitior,Yes,Categorical (Yes/No) , Is a CYP3A4 inhibitior
+,,,Excretion,Total Clearance,0.215,Numeric (log ml/min/kg)
+,,,Excretion,Renal OCT2 substrate,No,Categorical (Yes/No) , Is not a Renal OCT2 substrate
+,,,Toxicity,AMES toxicity,Yes,Categorical (Yes/No) , Is AMES toxic
+,,,Toxicity,Max. tolerated dose (human),-0.272,Numeric (log mg/kg/day) , Low Max. tolerated dose (human)
+,,,Toxicity,hERG I inhibitor,No,Categorical (Yes/No) , Is not a hERG I inhibitor
+,,,Toxicity,hERG II inhibitor,Yes,Categorical (Yes/No) , Is a hERG II inhibitor
+,,,Toxicity,Oral Rat Acute Toxicity (LD50),2.82,Numeric (mol/kg)
+,,,Toxicity,Oral Rat Chronic Toxicity (LOAEL),1.399,Numeric (log mg/kg_bw/day)
+,,,Toxicity,Hepatotoxicity,No,Categorical (Yes/No) , Is not Hepatotoxic
+,,,Toxicity,Skin Sensitisation,No,Categorical (Yes/No) , Is not Skin Sensitiser
+,,,Toxicity,T.Pyriformis toxicity,0.707,Numeric (log ug/L) , High T.Pyriformis toxicity
+,,,Toxicity,Minnow toxicity,-1.666,Numeric (log mM) , Low Minnow toxicity
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,Absorption,Water solubility,-5.383,Numeric (log mol/L) , Low water solubility
+,,,Absorption,Caco2 permeability,0.386,Numeric (log Papp in 10-6 cm/s) , Low Caco2 Permeability
+,,,Absorption,Intestinal absorption (human),93.845,Numeric (% Absorbed) , High Intestinal absorption (human)
+,,,Absorption,Skin Permeability,-2.664,Numeric (log Kp) , Low Skin Permeability
+,,,Absorption,P-glycoprotein substrate,Yes,Categorical (Yes/No) , Is a P-glycoprotein substrate
+,,,Absorption,P-glycoprotein I inhibitor,Yes,Categorical (Yes/No) , Is a P-glycoprotein I inhibitor
+,,,Absorption,P-glycoprotein II inhibitor,Yes,Categorical (Yes/No) , Is a P-glycoprotein II inhibitor
+,,,Distribution,VDss (human),0.124,Numeric (log L/kg) , Moderate VDss (human)
+,,,Distribution,Fraction unbound (human),0.044,Numeric (Fu)
+,,,Distribution,BBB permeability,-0.521,Numeric (log BB) , Cannot cross the BBB
+,,,Distribution,CNS permeability,-1.677,Numeric (log PS) , Can cross the CNS
+,,,Metabolism,CYP2D6 substrate,No,Categorical (Yes/No) , Is not a CYP2D6 substrate
+,,,Metabolism,CYP3A4 substrate,Yes,Categorical (Yes/No) , Is a CYP3A4 substrate
+,,,Metabolism,CYP1A2 inhibitior,Yes,Categorical (Yes/No) , Is a CYP1A2 inhibitior
+,,,Metabolism,CYP2C19 inhibitior,Yes,Categorical (Yes/No) , Is a CYP2C19 inhibitior
+,,,Metabolism,CYP2C9 inhibitior,Yes,Categorical (Yes/No) , Is a CYP2C9 inhibitior
+,,,Metabolism,CYP2D6 inhibitior,No,Categorical (Yes/No) , Is not a CYP2D6 inhibitior
+,,,Metabolism,CYP3A4 inhibitior,Yes,Categorical (Yes/No) , Is a CYP3A4 inhibitior
+,,,Excretion,Total Clearance,0.215,Numeric (log ml/min/kg)
+,,,Excretion,Renal OCT2 substrate,No,Categorical (Yes/No) , Is not a Renal OCT2 substrate
+,,,Toxicity,AMES toxicity,Yes,Categorical (Yes/No) , Is AMES toxic
+,,,Toxicity,Max. tolerated dose (human),-0.272,Numeric (log mg/kg/day) , Low Max. tolerated dose (human)
+,,,Toxicity,hERG I inhibitor,No,Categorical (Yes/No) , Is not a hERG I inhibitor
+,,,Toxicity,hERG II inhibitor,Yes,Categorical (Yes/No) , Is a hERG II inhibitor
+,,,Toxicity,Oral Rat Acute Toxicity (LD50),2.82,Numeric (mol/kg)
+,,,Toxicity,Oral Rat Chronic Toxicity (LOAEL),1.399,Numeric (log mg/kg_bw/day)
+,,,Toxicity,Hepatotoxicity,No,Categorical (Yes/No) , Is not Hepatotoxic
+,,,Toxicity,Skin Sensitisation,No,Categorical (Yes/No) , Is not Skin Sensitiser
+,,,Toxicity,T.Pyriformis toxicity,0.707,Numeric (log ug/L) , High T.Pyriformis toxicity
+,,,Toxicity,Minnow toxicity,-1.666,Numeric (log mM) , Low Minnow toxicity
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,Absorption,Water solubility,-5.383,Numeric (log mol/L) , Low water solubility
+,,,Absorption,Caco2 permeability,0.386,Numeric (log Papp in 10-6 cm/s) , Low Caco2 Permeability
+,,,Absorption,Intestinal absorption (human),93.845,Numeric (% Absorbed) , High Intestinal absorption (human)
+,,,Absorption,Skin Permeability,-2.664,Numeric (log Kp) , Low Skin Permeability
+,,,Absorption,P-glycoprotein substrate,Yes,Categorical (Yes/No) , Is a P-glycoprotein substrate
+,,,Absorption,P-glycoprotein I inhibitor,Yes,Categorical (Yes/No) , Is a P-glycoprotein I inhibitor
+,,,Absorption,P-glycoprotein II inhibitor,Yes,Categorical (Yes/No) , Is a P-glycoprotein II inhibitor
+,,,Distribution,VDss (human),0.124,Numeric (log L/kg) , Moderate VDss (human)
+,,,Distribution,Fraction unbound (human),0.044,Numeric (Fu)
+,,,Distribution,BBB permeability,-0.521,Numeric (log BB) , Cannot cross the BBB
+,,,Distribution,CNS permeability,-1.677,Numeric (log PS) , Can cross the CNS
+,,,Metabolism,CYP2D6 substrate,No,Categorical (Yes/No) , Is not a CYP2D6 substrate
+,,,Metabolism,CYP3A4 substrate,Yes,Categorical (Yes/No) , Is a CYP3A4 substrate
+,,,Metabolism,CYP1A2 inhibitior,Yes,Categorical (Yes/No) , Is a CYP1A2 inhibitior
+,,,Metabolism,CYP2C19 inhibitior,Yes,Categorical (Yes/No) , Is a CYP2C19 inhibitior
+,,,Metabolism,CYP2C9 inhibitior,Yes,Categorical (Yes/No) , Is a CYP2C9 inhibitior
+,,,Metabolism,CYP2D6 inhibitior,No,Categorical (Yes/No) , Is not a CYP2D6 inhibitior
+,,,Metabolism,CYP3A4 inhibitior,Yes,Categorical (Yes/No) , Is a CYP3A4 inhibitior
+,,,Excretion,Total Clearance,0.215,Numeric (log ml/min/kg)
+,,,Excretion,Renal OCT2 substrate,No,Categorical (Yes/No) , Is not a Renal OCT2 substrate
+,,,Toxicity,AMES toxicity,Yes,Categorical (Yes/No) , Is AMES toxic
+,,,Toxicity,Max. tolerated dose (human),-0.272,Numeric (log mg/kg/day) , Low Max. tolerated dose (human)
+,,,Toxicity,hERG I inhibitor,No,Categorical (Yes/No) , Is not a hERG I inhibitor
+,,,Toxicity,hERG II inhibitor,Yes,Categorical (Yes/No) , Is a hERG II inhibitor
+,,,Toxicity,Oral Rat Acute Toxicity (LD50),2.82,Numeric (mol/kg)
+,,,Toxicity,Oral Rat Chronic Toxicity (LOAEL),1.399,Numeric (log mg/kg_bw/day)
+,,,Toxicity,Hepatotoxicity,No,Categorical (Yes/No) , Is not Hepatotoxic
+,,,Toxicity,Skin Sensitisation,No,Categorical (Yes/No) , Is not Skin Sensitiser
+,,,Toxicity,T.Pyriformis toxicity,0.707,Numeric (log ug/L) , High T.Pyriformis toxicity
+,,,Toxicity,Minnow toxicity,-1.666,Numeric (log mM) , Low Minnow toxicity
+,,,,,,
+,,,,,,
+,,,,,,
+,,,Absorption,Water solubility,-5.383,Numeric (log mol/L) , Low water solubility
+,,,Absorption,Caco2 permeability,0.386,Numeric (log Papp in 10-6 cm/s) , Low Caco2 Permeability
+,,,Absorption,Intestinal absorption (human),93.845,Numeric (% Absorbed) , High Intestinal absorption (human)
+,,,Absorption,Skin Permeability,-2.664,Numeric (log Kp) , Low Skin Permeability
+,,,Absorption,P-glycoprotein substrate,Yes,Categorical (Yes/No) , Is a P-glycoprotein substrate
+,,,Absorption,P-glycoprotein I inhibitor,Yes,Categorical (Yes/No) , Is a P-glycoprotein I inhibitor
+,,,Absorption,P-glycoprotein II inhibitor,Yes,Categorical (Yes/No) , Is a P-glycoprotein II inhibitor
+,,,Distribution,VDss (human),0.124,Numeric (log L/kg) , Moderate VDss (human)
+,,,Distribution,Fraction unbound (human),0.044,Numeric (Fu)
+,,,Distribution,BBB permeability,-0.521,Numeric (log BB) , Cannot cross the BBB
+,,,Distribution,CNS permeability,-1.677,Numeric (log PS) , Can cross the CNS
+,,,Metabolism,CYP2D6 substrate,No,Categorical (Yes/No) , Is not a CYP2D6 substrate
+,,,Metabolism,CYP3A4 substrate,Yes,Categorical (Yes/No) , Is a CYP3A4 substrate
+,,,Metabolism,CYP1A2 inhibitior,Yes,Categorical (Yes/No) , Is a CYP1A2 inhibitior
+,,,Metabolism,CYP2C19 inhibitior,Yes,Categorical (Yes/No) , Is a CYP2C19 inhibitior
+,,,Metabolism,CYP2C9 inhibitior,Yes,Categorical (Yes/No) , Is a CYP2C9 inhibitior
+,,,Metabolism,CYP2D6 inhibitior,No,Categorical (Yes/No) , Is not a CYP2D6 inhibitior
+,,,Metabolism,CYP3A4 inhibitior,Yes,Categorical (Yes/No) , Is a CYP3A4 inhibitior
+,,,Excretion,Total Clearance,0.215,Numeric (log ml/min/kg)
+,,,Excretion,Renal OCT2 substrate,No,Categorical (Yes/No) , Is not a Renal OCT2 substrate
+,,,Toxicity,AMES toxicity,Yes,Categorical (Yes/No) , Is AMES toxic
+,,,Toxicity,Max. tolerated dose (human),-0.272,Numeric (log mg/kg/day) , Low Max. tolerated dose (human)
+,,,Toxicity,hERG I inhibitor,No,Categorical (Yes/No) , Is not a hERG I inhibitor
+,,,Toxicity,hERG II inhibitor,Yes,Categorical (Yes/No) , Is a hERG II inhibitor
+,,,Toxicity,Oral Rat Acute Toxicity (LD50),2.82,Numeric (mol/kg)
+,,,Toxicity,Oral Rat Chronic Toxicity (LOAEL),1.399,Numeric (log mg/kg_bw/day)
+,,,Toxicity,Hepatotoxicity,No,Categorical (Yes/No) , Is not Hepatotoxic
+,,,Toxicity,Skin Sensitisation,No,Categorical (Yes/No) , Is not Skin Sensitiser
+,,,Toxicity,T.Pyriformis toxicity,0.707,Numeric (log ug/L) , High T.Pyriformis toxicity
+,,,Toxicity,Minnow toxicity,-1.666,Numeric (log mM) , Low Minnow toxicity
