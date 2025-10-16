@@ -1,10 +1,19 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import csv
 
-file_input = input("Nome do arquivo de entrada (com extensão .csv): ")
-file_output = input("Nome do arquivo de saída (com extensão .csv): ")
+def promptInput(prompt):
+    try:
+        return raw_input(prompt)  # Python 2 compat (rare)
+    except NameError:
+        return input(prompt)      # Python 3
+
+file_input = promptInput("Nome do arquivo de entrada (com extensão .csv): ")
+file_output = promptInput("Nome do arquivo de saída (com extensão .csv): ")
 INPUT = file_input  # arquivo de entrada
 OUTPUT = file_output  # arquivo de saída    
 VALUE_INDEX = 5  # coluna que contém o valor nas linhas
+PROPINDEX = 4 # coluna que contém o nome da propriedade
 
 def parse_float(s):
     try:
@@ -119,7 +128,7 @@ def classify(property_name, raw_value):
     return None
 
 def process_file(input_path, output_path):
-    with open(input_path, "r", encoding="utf-8", newline="") as f:
+    with open(input_path, "r") as f:
         lines = f.readlines()
 
     new_lines = []
@@ -129,19 +138,22 @@ def process_file(input_path, output_path):
             row = next(csv.reader([raw_line]))
         except Exception:
             row = []
-        prop = row[0] if len(row) > 0 else raw_line
+        prop = row[PROPINDEX] if len(row) > PROPINDEX else ""
         val = row[VALUE_INDEX] if len(row) > VALUE_INDEX else ""
         label = classify(prop, val)
 
+        new_line = ""   
+
         if label:
-            print(label)
-            new_line = raw_line.rstrip("\r\n").rstrip() + " , " + label + "\n"
+            new_line = raw_line.strip() + " , " + label + "\n"
+            print(new_line)
         else:
             new_line = raw_line
         new_lines.append(new_line)
 
-    with open(output_path, "w", encoding="utf-8", newline="") as f:
+    with open(output_path, "w") as f:
         f.writelines(new_lines)
 
 if __name__ == "__main__":
+
     process_file(INPUT, OUTPUT)
