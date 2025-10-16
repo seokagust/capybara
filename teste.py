@@ -1,7 +1,9 @@
 import csv
 
-INPUT = "pkcsm.csv"
-OUTPUT = "pkcsm2.csv"
+file_input = input("Nome do arquivo de entrada (com extensão .csv): ")
+file_output = input("Nome do arquivo de saída (com extensão .csv): ")
+INPUT = file_input  # arquivo de entrada
+OUTPUT = file_output  # arquivo de saída    
 VALUE_INDEX = 5  # coluna que contém o valor nas linhas
 
 def parse_float(s):
