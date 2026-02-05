@@ -1,51 +1,21 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import csv
-import re
-import argparse
-import sys
 
-   
+def promptInput(prompt):
+    try:
+        return raw_input(prompt)  # Python 2 compat (rare)
+    except NameError:
+        return input(prompt)      # Python 3
 
+file_input = promptInput("Nome do arquivo de entrada (com extensão .csv): ")
+file_output = promptInput("Nome do arquivo de saída (com extensão .csv): ")
+INPUT = file_input  # arquivo de entrada
+OUTPUT = file_output  # arquivo de saída    
 VALUE_INDEX = 5  # coluna que contém o valor nas linhas
 PROPINDEX = 4 # coluna que contém o nome da propriedade
- 
-NUM_RE = re.compile(r'^-?\d+\.\d+$')
-
-def convert_value(v: str) -> str:
-    if v is None:
-        return ''
-    s = v.strip()
-    if s == '':
-        return s
-    # If the token is a simple float using dot as decimal separator, convert to comma
-    if NUM_RE.match(s):
-        return s.replace('.', ',')
-    # Otherwise leave unchanged
-    return v
-
-def process(input_path, output_path, input_delim=',', output_delim=';'):
-    with open(input_path, newline='', encoding='utf-8') as inf, \
-         open(output_path, 'w', newline='', encoding='utf-8') as outf:
-        reader = csv.reader(inf, delimiter=input_delim)
-        writer = csv.writer(outf, delimiter=output_delim, quoting=csv.QUOTE_MINIMAL)
-        row_count = 0
-        for row in reader:
-            row_count += 1
-            # Always build a new row and write it. Do NOT skip rows that don't contain numbers.
-            new_row = [convert_value(cell) for cell in row]
-           
-            property = new_row [PROPINDEX]
-            value= new_row [VALUE_INDEX]
-            classification = classify(property, value)  
-            new_row.insert(VALUE_INDEX + 1, classification)
-
-            writer.writerow(new_row)
-        
-    print(f'Processed {row_count} rows -> "{output_path}"')
 
 def parse_float(s):
-    print(s)
     try:
         return float(s)
     except (ValueError, TypeError):
@@ -53,7 +23,6 @@ def parse_float(s):
 
 def normalize(s):
     return (s or "").strip().strip('"')
-
 
 def classify(property_name, raw_value):
     prop = (property_name or "").lower()
@@ -198,45 +167,33 @@ def classify(property_name, raw_value):
 
     return None
 
+def process_file(input_path, output_path):
+    with open(input_path, "r") as f:
+        lines = f.readlines()
 
-def main():
-    p = argparse.ArgumentParser(description='Converte pontos decimais para vírgulas em campos numéricos de um CSV.')
-    p.add_argument('input', nargs='?', help='Arquivo CSV de entrada (opcional)')
-    p.add_argument('output', nargs='?', help='Arquivo CSV de saída (opcional)')
-    p.add_argument('--in-delim', default=',', help='Delimitador do CSV de entrada (padrão: ,)')
-    p.add_argument('--out-delim', default=';', help='Delimitador do CSV de saída (padrão: ;)')
-    args = p.parse_args()
+    new_lines = []
+    for raw_line in lines:
+        # usa csv.reader para respeitar aspas e vírgulas internas
+        try:
+            row = next(csv.reader([raw_line]))
+        except Exception:
+            row = []
+        prop = row[PROPINDEX] if len(row) > PROPINDEX else ""
+        val = row[VALUE_INDEX] if len(row) > VALUE_INDEX else ""
+        label = classify(prop, val)
 
-    # Mensagem explicativa e prompts interativos quando argumentos estiverem ausentes
-    print('Converte pontos decimais (ex: 123.45) para vírgulas (123,45) apenas em tokens numéricos.')
-    print('Linhas sem números com ponto serão mantidas; o arquivo de saída usa separador configurável.')
+        new_line = ""   
 
-    input_path = args.input
-    if not input_path:
-        prompt = "Caminho do arquivo de entrada (pressione Enter para 'sample_input.csv'): "
-        input_path = input(prompt).strip() or 'sample_input.csv'
+        if label:
+            new_line = raw_line.strip() + " , " + label + "\n"
+            print(new_line)
+        else:
+            new_line = raw_line
+        new_lines.append(new_line)
 
-    output_path = args.output
-    if not output_path:
-        prompt = "Caminho do arquivo de saída (pressione Enter para 'sample_output.csv'): "
-        output_path = input(prompt).strip() or 'sample_output.csv'
+    with open(output_path, "w") as f:
+        f.writelines(new_lines)
 
-    in_delim = args.in_delim
-    out_delim = args.out_delim
+if __name__ == "__main__":
 
-    ans = input(f"Delimitador de entrada atual é '{in_delim}'. Deseja mudar? (s/N): ").strip().lower()
-    if ans in ('s', 'y'):
-        in_delim = input("Novo delimitador de entrada (ex: , ou ;): ").strip() or in_delim
-
-    ans = input(f"Delimitador de saída atual é '{out_delim}'. Deseja mudar? (s/N): ").strip().lower()
-    if ans in ('s', 'y'):
-        out_delim = input("Novo delimitador de saída (ex: , ou ;): ").strip() or out_delim
-
-    try:
-        process(input_path, output_path, in_delim, out_delim)
-    except FileNotFoundError as e:
-        print('Arquivo não encontrado:', e, file=sys.stderr)
-        sys.exit(2)
-
-if __name__ == '__main__':
-    main()
+    process_file(INPUT, OUTPUT)
