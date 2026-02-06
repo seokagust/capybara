@@ -4,7 +4,7 @@ import csv
 
 def promptInput(prompt):
     try:
-        return raw_input(prompt)  # Python 2 compat (rare)
+        return raw_input(prompt)  # type: ignore # Python 2 compat (rare)
     except NameError:
         return input(prompt)      # Python 3
 
@@ -14,6 +14,8 @@ INPUT = file_input  # arquivo de entrada
 OUTPUT = file_output  # arquivo de saída    
 VALUE_INDEX = 5  # coluna que contém o valor nas linhas
 PROPINDEX = 4 # coluna que contém o nome da propriedade
+DECIMAL_POINT = "."
+EXCEL = True
 
 def parse_float(s):
     try:
@@ -22,12 +24,16 @@ def parse_float(s):
         return None
 
 def normalize(s):
-    return (s or "").strip().strip('"')
+    str = (s or "").strip()
+    if DECIMAL_POINT == ".":
+        str = str.split(",")[0]
+    elif DECIMAL_POINT == ",":
+        str = str.split(".")[0]
+    return str
 
 def classify(property_name, raw_value):
     prop = (property_name or "").lower()
     val = normalize(raw_value)
-
     if "water solubility" in prop:
         v = parse_float(val); 
         if v is None: return None
@@ -76,7 +82,7 @@ def classify(property_name, raw_value):
         if 90 > fractionUnboundPercent >= 70: return "Moderate plasmatic protein binding (human)"   
         return "Low plasmatic protein binding (human)"
 
-    if "total clearance (human)" in prop:
+    if "total clearance".lower() in prop:
         v = parse_float(val); 
         if v is None: return None
         if v < 500: return "Low Total clearance (human)"
@@ -84,15 +90,14 @@ def classify(property_name, raw_value):
         if 500 <= v < 1000: return "Moderate Total clearance (human)"
         return "High Total clearance (human)"   
     
-    if "Oral Rat Acute Toxicity (LD50)" in prop:    
+    if "Oral Rat Acute Toxicity (LD50)".lower() in prop:    
         v = parse_float(val); 
-
         if v is None: return None
-        if v < 5: return "  Extremaly high Oral Rat Acute Toxicity (LD50)"
-        if 5 <= v < 50: return "  High Oral Rat Acute Toxicity (LD50)"
-        if 50 <= v < 500: return "  Moderate Oral Rat Acute Toxicity (LD50)"
-        if 500 <= v < 5000: return "  Low Oral Rat Acute Toxicity (LD50)"
-        return "  Very Low Oral Rat Acute Toxicity (LD50)"   
+        if v < 5: return "Extremely high Oral Rat Acute Toxicity (LD50)"
+        if 5 <= v < 50: return "High Oral Rat Acute Toxicity (LD50)"
+        if 50 <= v < 500: return "Moderate Oral Rat Acute Toxicity (LD50)"
+        if 500 <= v < 5000: return "Low Oral Rat Acute Toxicity (LD50)"
+        return "Very Low Oral Rat Acute Toxicity (LD50)"   
     
 # 5 mg kg-1 - extremely toxic
 # 5-50 mg kg-1 - highly toxic
@@ -100,11 +105,15 @@ def classify(property_name, raw_value):
 # 500-5000 mg kg-1 - slightly toxic
 # greater than 5000mg kg-1 - practically non toxic
 
-    if "Oral Rat Chronic Toxicity (LD50)" in prop:
+    if "Oral Rat Chronic Toxicity (LOAEL)".lower() in prop:
         v = parse_float(val);
         if v is None: return None
         chronicToxicityReal = 10 ** v
-        if chronicToxicityReal < 5: return "Extremaly high Oral Rat"
+        if chronicToxicityReal < 5: return "Extremely high Oral Rat Chronic Toxicity (LOAEL)"
+        if 5 <= chronicToxicityReal < 50: return "High Oral Rat Chronic Toxicity (LOAEL)"
+        if 50 <= chronicToxicityReal < 500: return "Moderate Oral Rat Chronic Toxicity (LOAEL)"
+        if 500 <= chronicToxicityReal < 5000: return "Low Oral Rat Chronic Toxicity (LOAEL)"
+        return "Very Low Oral Rat Chronic Toxicity (LOAEL)"   
 
     if "bbb permeability" in prop:
         v = parse_float(val); 
@@ -186,14 +195,14 @@ def process_file(input_path, output_path):
 
         if label:
             new_line = raw_line.strip() + " , " + label + "\n"
-            print(new_line)
         else:
             new_line = raw_line
         new_lines.append(new_line)
 
     with open(output_path, "w") as f:
+        if EXCEL:
+            f.write("sep=,\n")
         f.writelines(new_lines)
 
 if __name__ == "__main__":
-
     process_file(INPUT, OUTPUT)
